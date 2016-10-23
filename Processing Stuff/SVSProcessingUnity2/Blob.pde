@@ -43,12 +43,23 @@ class Blob {
   
   // Show me
   void display() {
+    
     Rectangle r = contour.getBoundingBox();
     
     float opacity = map(timer, 0, initTimer, 0, 127);
     fill(0,0,255,opacity);
     stroke(0,0,255);
-    rect(r.x, r.y, r.width, r.height);
+    
+    int rX = 0;
+    if(r.x<=640){
+      rX = (int)map(r.x,0,640,640,0);
+    }
+    if(r.x>640){
+      rX = (int)map(r.x,640,1280,1280,640);
+    }
+    
+    
+    rect(rX, r.y, r.width, r.height);
     fill(255,2*opacity);
     textSize(26);
     text(""+id, r.x+10, r.y+30);

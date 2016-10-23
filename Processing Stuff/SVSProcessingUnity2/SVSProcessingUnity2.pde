@@ -3,10 +3,14 @@ import netP5.*;
 import processing.video.*;
 import gab.opencv.*;
 import java.awt.Rectangle;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.awt.image.BufferedImage;
+
 //import processing.video.*;
 
 //Osc
-Capture cam1, cam2;
+Capture cam1, cam2, cam3, cam4;
 OscP5 oscP5;
 NetAddress myBroadcastLocation;
 
@@ -23,7 +27,7 @@ int blurSize = 4;
 int blobCount = 0;
 
 void setup() {
-  size(1280, 960);
+  size(1280, 800);
   blobList = new ArrayList<Blob>();
   // frameRate(20);
   oscP5 = new OscP5(this, 12000);
@@ -43,46 +47,55 @@ void setup() {
 
     cam2 = new Capture(this, cameras[89]);
     cam2.start();
+
+    cam3 = new Capture(this, cameras[177]);
+    cam3.start();
+
+    cam4 = new Capture(this, cameras[265]);
+    cam4.start();
   }  
   //delay(250);
-  opencv = new OpenCV(this, 1280, 480);
+  opencv = new OpenCV(this, 1280, 960);
   noStroke();
   smooth();
 }
 
 void draw() {
 
-  if (cam1.available() == true && cam2.available() == true) {
+  if (cam1.available() && cam2.available() && cam3.available() && cam4.available()) {
     cam1.read();
     cam2.read();
-    
+    cam3.read();
+    cam4.read();
+
     PImage c1 = cam1;
-    //pushMatrix();
     PImage c2 = cam2;
-    
-    
+    PImage c3 = cam3;
+    PImage c4 = cam4;
+    /*c1 = flipImage(c1);
+    c2 = flipImage(c2);
+    c3 = flipImage(c3);
+    c4 = flipImage(c4);*/
+
+
     //image(cam, 0, 0);
     //src = cam1
 
-    PGraphics output = createGraphics(1280, 480, JAVA2D);
+    PGraphics output = createGraphics(1280, 960, JAVA2D);
     output.beginDraw();
-    
+
     //pushMatrix();
     //translate(width/2, height/2);
     //rotate(PI/2);
-    output.image(c2, 640, 0);
 
-    
-    
-    output.image(c1, 0, 0);
+    output.image(c1, 640, 400);
+    output.image(c2, 640, 0);
+    output.image(c3, 0, 0);
+    output.image(c4, 0, 400);
     output.endDraw();
-    image(output, 0, 480);
-    //popMatrix();
-    //loadPixels();
-    //temp = output.get(); 
+    image(output, 0, 0);
 
     opencv.loadImage(output.get());
-    
 
     opencv.gray();
     opencv.contrast(contrast);
@@ -117,6 +130,7 @@ void draw() {
     }
 
 
+
     noFill();
     strokeWeight(3);
 
@@ -133,12 +147,36 @@ void draw() {
     }
     text("Framerate: " + int(frameRate), 10, 450);
   }
+  
+  line(640,0,640,800);
+  line(0,400,1280,400);
 }
+
+/*
+private PImage flipImage(PImage i) {
+  int iWidth = 640;
+  int iHeight = 400;
+  
+  //BufferedImage bimg = new BufferedImage(iWidth, iHeight, BufferedImage.TYPE_INT_RGB);
+  BufferedImage bimg = (BufferedImage) i.getNative();
+  //Flip
+  AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
+  tx.translate(-iWidth, 0);
+  AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+  bimg = op.filter(bimg, null);
+
+  //Convert to PImage
+  PImage img=new PImage(bimg.getWidth(), bimg.getHeight(), PConstants.ARGB);
+  bimg.getRGB(0, 0, iWidth, iHeight, img.pixels, 0, iWidth);
+  img.updatePixels();
+  return img;
+}
+*/
 
 void sendMessage(int xx, int zz, int area, int id) {
 
   float mappedX = map(xx, 1280, 0, 10, 85);//10,85
-  float mappedZ = map(zz, 0, 480, 45, 8);//40,4
+  float mappedZ = map(zz, 0, 400, 45, 8);//40,4
   float mappedArea = map(area, 500, 16000, 4, 12);//check med blobs
   //println(xx, zz, area, mappedX, mappedZ, mappedArea);
   //drawText(mappedX, mappedZ, mappedArea, xx, zz);
@@ -154,7 +192,7 @@ void sendMessage(int xx, int zz, int area, int id) {
 
 /*void sendMessage(int x, int z, int area, int num) {
  float mappedX = map(x, 0, 640, 21, 107);
- float mappedZ = map(z, 0, 480, 83, 44);
+ float mappedZ = map(z, 0, 400, 83, 44);
  float mappedArea = map(area, 500, 16000,1,10);
  
  OscMessage myOscMessage = new OscMessage("/positionData");
@@ -179,6 +217,7 @@ void displayContoursBoundingBoxes() {
     stroke(255, 0, 0);
     fill(255, 0, 0, 150);
     strokeWeight(2);
+    
     rect(r.x, r.y, r.width, r.height);
   }
 }
