@@ -73,9 +73,9 @@ void draw() {
     PImage c3 = cam3;
     PImage c4 = cam4;
     /*c1 = flipImage(c1);
-    c2 = flipImage(c2);
-    c3 = flipImage(c3);
-    c4 = flipImage(c4);*/
+     c2 = flipImage(c2);
+     c3 = flipImage(c3);
+     c4 = flipImage(c4);*/
 
 
     //image(cam, 0, 0);
@@ -136,7 +136,7 @@ void draw() {
 
     for (Contour contour : contours) {
       stroke(0, 255, 0);
-      contour.draw();
+      //contour.draw();
 
       stroke(255, 0, 0);
       beginShape();
@@ -147,37 +147,51 @@ void draw() {
     }
     text("Framerate: " + int(frameRate), 10, 450);
   }
-  
-  line(640,0,640,800);
-  line(0,400,1280,400);
+
+  line(640, 0, 640, 800);
+  line(0, 400, 1280, 400);
 }
 
 /*
 private PImage flipImage(PImage i) {
-  int iWidth = 640;
-  int iHeight = 400;
-  
-  //BufferedImage bimg = new BufferedImage(iWidth, iHeight, BufferedImage.TYPE_INT_RGB);
-  BufferedImage bimg = (BufferedImage) i.getNative();
-  //Flip
-  AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
-  tx.translate(-iWidth, 0);
-  AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
-  bimg = op.filter(bimg, null);
-
-  //Convert to PImage
-  PImage img=new PImage(bimg.getWidth(), bimg.getHeight(), PConstants.ARGB);
-  bimg.getRGB(0, 0, iWidth, iHeight, img.pixels, 0, iWidth);
-  img.updatePixels();
-  return img;
-}
-*/
+ int iWidth = 640;
+ int iHeight = 400;
+ 
+ //BufferedImage bimg = new BufferedImage(iWidth, iHeight, BufferedImage.TYPE_INT_RGB);
+ BufferedImage bimg = (BufferedImage) i.getNative();
+ //Flip
+ AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
+ tx.translate(-iWidth, 0);
+ AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+ bimg = op.filter(bimg, null);
+ 
+ //Convert to PImage
+ PImage img=new PImage(bimg.getWidth(), bimg.getHeight(), PConstants.ARGB);
+ bimg.getRGB(0, 0, iWidth, iHeight, img.pixels, 0, iWidth);
+ img.updatePixels();
+ return img;
+ }
+ */
 
 void sendMessage(int xx, int zz, int area, int id) {
+  print(area + " ");
+
+/*  if (xx<=640) {
+    xx = (int)map(xx, 0, 640, 640, 0);
+  }
+  if (xx>640) {
+    xx = (int)map(xx, 640, 1280, 1280, 640);
+  }*/
+
+  if (xx<=640) {
+    xx = (int)map(xx, 0, 640, 640, 1280);
+  } else if (xx>640) {
+    xx = (int)map(xx, 640, 1280, 0, 640);
+  }
 
   float mappedX = map(xx, 1280, 0, 10, 85);//10,85
-  float mappedZ = map(zz, 0, 400, 45, 8);//40,4
-  float mappedArea = map(area, 500, 16000, 4, 12);//check med blobs
+  float mappedZ = map(zz, 0, 800, 45, 8);//40,4
+  float mappedArea = map(area, 1500, 27000, 2, 4);//check med blobs
   //println(xx, zz, area, mappedX, mappedZ, mappedArea);
   //drawText(mappedX, mappedZ, mappedArea, xx, zz);
 
@@ -186,8 +200,9 @@ void sendMessage(int xx, int zz, int area, int id) {
   myOscMessage.add(mappedZ);
   myOscMessage.add(mappedArea);
   myOscMessage.add(id);
-  print(id);
+  //print(id);
   oscP5.send(myOscMessage, myBroadcastLocation);
+  println(xx, mappedX);
 }
 
 /*void sendMessage(int x, int z, int area, int num) {
@@ -217,7 +232,7 @@ void displayContoursBoundingBoxes() {
     stroke(255, 0, 0);
     fill(255, 0, 0, 150);
     strokeWeight(2);
-    
+
     rect(r.x, r.y, r.width, r.height);
   }
 }
