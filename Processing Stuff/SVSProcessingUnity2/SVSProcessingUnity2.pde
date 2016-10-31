@@ -21,13 +21,14 @@ ArrayList<Contour> contours;
 ArrayList<Contour> newBlobContours;// List of detected contours parsed as blobs (every frame)
 ArrayList<Blob> blobList;
 float contrast = .9;
-int blobSizeThreshold = 20;
-int threshold = 185;
+int blobSizeThreshold = 10;
+int threshold = 175;
 int blurSize = 4;
 int blobCount = 0;
 
 void setup() {
-  size(1280, 800);
+  fullScreen();
+  //size(1280, 800);
   blobList = new ArrayList<Blob>();
   // frameRate(20);
   oscP5 = new OscP5(this, 12000);
@@ -42,20 +43,24 @@ void setup() {
     println("Available cameras:");
     printArray(cameras);
 
-    cam1 = new Capture(this, cameras[1]);
+    //cam1 = new Capture(this, cameras[199]);
+    cam1 = new Capture(this, 864, 480, "Cam1", 30);
     cam1.start();
 
-    cam2 = new Capture(this, cameras[89]);
+    //cam2 = new Capture(this, cameras[111]);
+    cam2 = new Capture(this, 864, 480, "Cam2", 30);
     cam2.start();
 
-    cam3 = new Capture(this, cameras[177]);
+    //cam3 = new Capture(this, cameras[287]);
+    cam3 = new Capture(this, 864, 480, "Cam3", 30);
     cam3.start();
 
-    cam4 = new Capture(this, cameras[265]);
+    //cam4 = new Capture(this, cameras[23]);
+    cam4 = new Capture(this, 864, 480, "Cam4", 30);
     cam4.start();
   }  
   //delay(250);
-  opencv = new OpenCV(this, 1280, 960);
+  opencv = new OpenCV(this, 1280, 800);
   noStroke();
   smooth();
 }
@@ -81,17 +86,17 @@ void draw() {
     //image(cam, 0, 0);
     //src = cam1
 
-    PGraphics output = createGraphics(1280, 960, JAVA2D);
+    PGraphics output = createGraphics(1280, 800, JAVA2D);
     output.beginDraw();
 
     //pushMatrix();
     //translate(width/2, height/2);
     //rotate(PI/2);
 
-    output.image(c1, 640, 400);
-    output.image(c2, 640, 0);
-    output.image(c3, 0, 0);
-    output.image(c4, 0, 400);
+    output.image(c1, 0, 0, 640, height*0.5);
+    output.image(c2, 640, 0, 640, height*0.5);
+    output.image(c3, 0, 400, 640, height*0.5);
+    output.image(c4, 640, 400, 640, height*0.5);
     output.endDraw();
     image(output, 0, 0);
 
@@ -176,12 +181,12 @@ private PImage flipImage(PImage i) {
 void sendMessage(int xx, int zz, int area, int id) {
   print(area + " ");
 
-/*  if (xx<=640) {
-    xx = (int)map(xx, 0, 640, 640, 0);
-  }
-  if (xx>640) {
-    xx = (int)map(xx, 640, 1280, 1280, 640);
-  }*/
+  /*  if (xx<=640) {
+   xx = (int)map(xx, 0, 640, 640, 0);
+   }
+   if (xx>640) {
+   xx = (int)map(xx, 640, 1280, 1280, 640);
+   }*/
 
   if (xx<=640) {
     xx = (int)map(xx, 0, 640, 640, 1280);
@@ -189,9 +194,9 @@ void sendMessage(int xx, int zz, int area, int id) {
     xx = (int)map(xx, 640, 1280, 0, 640);
   }
 
-  float mappedX = map(xx, 1280, 0, 10, 85);//10,85
-  float mappedZ = map(zz, 0, 800, 45, 8);//40,4
-  float mappedArea = map(area, 1500, 27000, 2, 4);//check med blobs
+  float mappedX = map(xx, 1280, 0, 10, 86);//10,85
+  float mappedZ = map(zz, 0, 800, 55, 0);//40,4
+  float mappedArea = map(area, 1500, 27000, 3, 7);//check med blobs
   //println(xx, zz, area, mappedX, mappedZ, mappedArea);
   //drawText(mappedX, mappedZ, mappedArea, xx, zz);
 
@@ -233,7 +238,7 @@ void displayContoursBoundingBoxes() {
     fill(255, 0, 0, 150);
     strokeWeight(2);
 
-    rect(r.x, r.y, r.width, r.height);
+    rect(r.x-r.width, r.y, r.width, r.height);
   }
 }
 
