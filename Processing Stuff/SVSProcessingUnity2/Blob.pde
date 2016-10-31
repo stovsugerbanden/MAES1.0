@@ -59,7 +59,21 @@ class Blob {
     }
     
     
-    rect(rX, r.y, r.width, r.height);
+    
+    
+    //int rY = 0;
+    //if(r.y<=400){
+    //  rY = (int)map(r.y,0,400,0,400);
+    //}
+    //if(r.y>400){
+    //  rY = (int)map(r.y,395,800,400,800);
+    //}
+    
+    
+    
+    
+    
+    rect(rX-r.width, r.y, r.width, r.height);
     fill(255,2*opacity);
     textSize(26);
     text(""+id, r.x+10, r.y+30);
