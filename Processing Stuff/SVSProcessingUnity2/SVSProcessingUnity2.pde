@@ -27,8 +27,8 @@ int blurSize = 4;
 int blobCount = 0;
 
 void setup() {
-  fullScreen();
-  //size(1280, 800);
+  //fullScreen();
+  size(1280, 800);
   blobList = new ArrayList<Blob>();
   // frameRate(20);
   oscP5 = new OscP5(this, 12000);

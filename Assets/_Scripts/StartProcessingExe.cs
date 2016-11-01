@@ -4,11 +4,14 @@ using System.Diagnostics;
 
 
 public class StartProcessingExe : MonoBehaviour {
-
+    public bool finishedBuild;
 	// Use this for initialization
 	void Start () {
-        Process foo = new Process();
-        foo.StartInfo.FileName = "SVSProcessingUnity2.exe";
-        foo.Start();
+        if (finishedBuild)
+        {
+            Process foo = new Process();
+            foo.StartInfo.FileName = "SVSProcessingUnity2.exe";
+            foo.Start();
+        }
     }
 }
