@@ -12,8 +12,8 @@ public class FloatingSandCurrent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print(c.GetDir().z + ", "+ map(c.GetDir().z, -curMaxStr, curMaxStr, -90, 90));
-        float rotVal = map(c.GetDir().z, -curMaxStr, curMaxStr, -90, 90);
+        //print(c.GetDir().z + ", "+ map(c.GetDir().z, -curMaxStr, curMaxStr, -90, 90));
+        //float rotVal = map(c.GetDir().z, -curMaxStr, curMaxStr, -90, 90);
         //transform.rotation = new Quaternion( 0,rotVal,0,0);
         //transform.Rotate(0, c.GetDir().z, 0);
         //transform.rotation.eulerAngles = new Vector3(0,90,0);
