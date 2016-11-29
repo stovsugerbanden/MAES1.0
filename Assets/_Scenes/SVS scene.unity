@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.13200097, g: 0.059688598, b: 0.6764706, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.005
+  m_FogDensity: 0.008
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.3529412, g: 0.5254902, b: 0.62352943, a: 1}
@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 0.2
 --- !u!1 &59490145
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 0.2
 --- !u!114 &79445376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,6 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 0.2
 --- !u!114 &176384341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,6 +610,10 @@ Prefab:
       propertyPath: m_Name
       value: Star fish
       objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 5c03dd4f8f864fa44b6e23405c0cd182, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c03dd4f8f864fa44b6e23405c0cd182, type: 3}
   m_IsPrefabParent: 0
@@ -653,6 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 1
 --- !u!1 &350165468
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,6 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 0.2
 --- !u!114 &358878532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,7 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6277e7bfc49f4eb459ea263a51770ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strLimit: 2.5
+  strLimit: 5
   step: 0.02
   dir: {x: 0, y: 0, z: 0}
 --- !u!4 &510365277
@@ -1286,6 +1295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 0.2
 --- !u!114 &576847436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1381,6 +1391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 1
 --- !u!64 &623683577
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1437,6 +1448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 0.2
 --- !u!114 &625657274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1623,6 +1635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 1
 --- !u!1 &688004514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,6 +1680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 0.2
 --- !u!114 &688004517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1843,6 +1857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 1
 --- !u!114 &744525802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1984,6 +1999,7 @@ Transform:
   - {fileID: 1540983850}
   - {fileID: 1671352669}
   - {fileID: 2014930456}
+  - {fileID: 1408096606}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1001 &967133370
@@ -2084,6 +2100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 1
 --- !u!1 &980112843
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,6 +2195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 1
 --- !u!64 &1055068733
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2218,6 +2236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 1
 --- !u!1 &1169662562 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: a5d6311ea0e2e0e4f828a27ef8ec16cf, type: 3}
@@ -2250,6 +2269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 1
 --- !u!1 &1177541067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,6 +2314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 0.2
 --- !u!114 &1177541070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2453,19 +2474,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 923717738}
     m_Modifications:
     - target: {fileID: 400000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 67
+      value: -14.419998
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 36.8
+      value: 26.65
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.5
+      value: -19.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2473,11 +2494,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
       propertyPath: m_LocalRotation.w
@@ -2485,7 +2506,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
       propertyPath: InitialModule.startSize.scalar
@@ -2542,6 +2563,18 @@ Prefab:
     - target: {fileID: 11400000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
+      propertyPath: randomSeed
+      value: 1339703018
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
@@ -2698,6 +2731,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f7aa4d40edff6e48b549003cad031e1, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1408096606 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 32aafb358d61bd14b9b27ed0871fe43b, type: 2}
+  m_PrefabInternal: {fileID: 1313867030}
 --- !u!1 &1417544770 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: ab0e55f6bb184b34d8e1320bf43faae6, type: 3}
@@ -2713,6 +2750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 1
 --- !u!114 &1417544773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2883,6 +2921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 0.2
 --- !u!114 &1511394349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3120,6 +3159,10 @@ Prefab:
     - target: {fileID: 400006, guid: 47307d0e7bf55a8469c3e58197266964, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -39.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 47307d0e7bf55a8469c3e58197266964, type: 3}
+      propertyPath: m_Name
+      value: treenail
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47307d0e7bf55a8469c3e58197266964, type: 3}
@@ -3555,6 +3598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 1
 --- !u!4 &1966786841 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400010, guid: 5c03dd4f8f864fa44b6e23405c0cd182, type: 3}
@@ -3579,7 +3623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2113034141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3611,7 +3655,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!114 &2113034143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3675,6 +3719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc96c2eebd530248a06425abae48aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGround: 0.2
 --- !u!114 &2147034270
 MonoBehaviour:
   m_ObjectHideFlags: 0

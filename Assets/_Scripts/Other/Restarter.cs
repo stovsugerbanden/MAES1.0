@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Restarter : MonoBehaviour {
 
@@ -13,7 +13,8 @@ public class Restarter : MonoBehaviour {
 		if (Input.GetKeyDown("r") )
 		{
 
-			Application.LoadLevel (Application.loadedLevelName);
+            SceneManager.LoadScene(Application.loadedLevelName);
+			//Application.LoadLevel (Application.loadedLevelName);
 
 		}
 	}

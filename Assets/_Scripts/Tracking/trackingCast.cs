@@ -33,7 +33,7 @@ public class trackingCast : MonoBehaviour {
 		if (!mm.GetNData ())
 			return;
 		mm.SetNData (false);
-        Vector2 mousePos = Input.mousePosition;
+        //Vector2 mousePos = Input.mousePosition;
         Ray ray = new Ray(transform.position, Vector3.down);
         PickSurfaceResult pickResult;
         bool hit = Picking.PickSurface(terrainVolume, ray, 1000.0f, out pickResult);
@@ -94,7 +94,7 @@ public class trackingCast : MonoBehaviour {
                 }
                 catch (CubiquityException e)
                 {
-                    print("Cubiquity exception");
+                    print("Cubiquity exception" + e);
                     //This is cast if we try to call destroyVoxels on a y value that is out of the voxelvolume
                 }
             }
