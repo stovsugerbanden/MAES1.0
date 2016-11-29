@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Diagnostics;
 
 
 public class StartProcessingExe : MonoBehaviour {
     public bool finishedBuild;
-	// Use this for initialization
+    private bool alreadyStarted = false;
+
 	void Start () {
-        if (finishedBuild)
+        if (finishedBuild && !alreadyStarted)
         {
-            Process foo = new Process();
-            foo.StartInfo.FileName = "SVSProcessingUnity2.exe";
-            foo.Start();
+            Process p = new Process();
+            p.StartInfo.FileName = "SVSProcessingUnity2.exe";
+            if (p.Start())
+                alreadyStarted = true;
+            else
+                print("Could not start processing app");
         }
     }
 }
