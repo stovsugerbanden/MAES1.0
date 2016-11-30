@@ -9,6 +9,7 @@ TagManager:
   - Fire
   - trackingTarget
   - Whirl
+  - Pin
   layers:
   - Default
   - TransparentFX

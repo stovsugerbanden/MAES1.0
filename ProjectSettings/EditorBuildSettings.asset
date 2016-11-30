@@ -7,3 +7,5 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/_Scenes/SVS scene.unity
+  - enabled: 1
+    path: Assets/_Scenes/SiteFinder.unity
