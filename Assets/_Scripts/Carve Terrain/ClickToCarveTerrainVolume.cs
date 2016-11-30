@@ -36,7 +36,7 @@ public class ClickToCarveTerrainVolume : MonoBehaviour
 		
 		// If the mouse btton is down and it was not down last frame
 		// then we consider this a click, and do our destruction.
-		if(Input.GetMouseButton(0))
+		if(Input.GetMouseButton(1))
 		{
 			if(!isMouseAlreadyDown)
 			{

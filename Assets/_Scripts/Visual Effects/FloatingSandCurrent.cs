@@ -17,9 +17,9 @@ public class FloatingSandCurrent : MonoBehaviour {
         //transform.rotation = new Quaternion( 0,rotVal,0,0);
         //transform.Rotate(0, c.GetDir().z, 0);
         //transform.rotation.eulerAngles = new Vector3(0,90,0);
-        if(c.GetDir().z > 1)
+        if(c.GetDir().x > .1f)
             transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
-        if (c.GetDir().z < -1)
+        if (c.GetDir().x < -.1f)
             transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
     }
 

@@ -28,9 +28,10 @@ public class Current : MonoBehaviour {
         }
         str += step;
 
-        dir = new Vector3(0, 0, str);
+        //dir = new Vector3(0, 0, str);
+        dir = new Vector3(str, 0, 0);
         //rb.AddForce(dir);
-	}
+    }
 
     void SetVals() {
         limitR = Random.Range(0, -strLimit);
