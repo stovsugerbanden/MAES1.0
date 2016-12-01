@@ -210,6 +210,7 @@ GameObject:
   - 114: {fileID: 510365283}
   - 114: {fileID: 510365284}
   - 114: {fileID: 510365285}
+  - 114: {fileID: 510365286}
   m_Layer: 0
   m_Name: Global
   m_TagString: Global
@@ -341,6 +342,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedBuild: 0
+--- !u!114 &510365286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 510365275}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1e0f7a3b6e2e64489753eb77cafd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &670607758
 Prefab:
   m_ObjectHideFlags: 0
@@ -412,6 +424,11 @@ Prefab:
     - target: {fileID: 4000012944841628, guid: 8e946ffcb4c029f47956d04d143c39ad, type: 2}
       propertyPath: m_LocalPosition.y
       value: 14.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000010121958812, guid: 8e946ffcb4c029f47956d04d143c39ad,
+        type: 2}
+      propertyPath: m_TargetDisplay
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e946ffcb4c029f47956d04d143c39ad, type: 2}
@@ -677,7 +694,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 2}
@@ -853,6 +870,11 @@ Prefab:
     - target: {fileID: 1000010616618474, guid: e791cee1b38d9ef4696701e8b7ceefec, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000013222141250, guid: e791cee1b38d9ef4696701e8b7ceefec,
+        type: 2}
+      propertyPath: m_TargetDisplay
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e791cee1b38d9ef4696701e8b7ceefec, type: 2}

@@ -19,6 +19,5 @@ public class BackButton : MonoBehaviour {
     public void loadSitefinder() {
         print("Loading SiteFinder");
         SceneManager.LoadScene("SiteFinder");
-
     }
 }

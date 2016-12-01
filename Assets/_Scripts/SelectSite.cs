@@ -13,6 +13,7 @@ public class SelectSite : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //print("Touchcount: "+Input.touchCount);
         if (Input.GetButton("Fire3"))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);

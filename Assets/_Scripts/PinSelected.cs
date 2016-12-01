@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PinSelected : MonoBehaviour {
     public Transform radar;
     public GameObject selectedObj, loadingObj;
-    public Camera cam;
+    public Camera cam;//, cam1;
     public float initLoadSceneTimer = 3;
 
     public float selectTimer = 0;
@@ -46,6 +46,10 @@ public class PinSelected : MonoBehaviour {
             loadingObj.SetActive(true);
             loadingObj.transform.LookAt(cam.transform.position);
             SceneManager.LoadScene("SVS scene");
+
+            //cam.enabled = true;
+            //cam1.enabled = true;
+
         }
 
     }

@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/SVS scene.unity
-  - enabled: 1
     path: Assets/_Scenes/SiteFinder.unity
+  - enabled: 1
+    path: Assets/_Scenes/SVS scene.unity
