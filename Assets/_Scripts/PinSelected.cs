@@ -27,7 +27,7 @@ public class PinSelected : MonoBehaviour {
             selectedObj.SetActive(true);
             radar.LookAt(cam.transform.position);
             float scale = map(loadSceneTimer,0,initLoadSceneTimer,0,1f);
-            print(loadSceneTimer+", "+scale);
+            //print(loadSceneTimer+", "+scale);
             radar.transform.localScale = new Vector3(scale,scale,scale);
         }
         else {
