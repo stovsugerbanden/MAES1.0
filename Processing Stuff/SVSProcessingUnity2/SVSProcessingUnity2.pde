@@ -7,8 +7,6 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 
-//import processing.video.*;
-
 //Osc
 Capture cam1, cam2, cam3, cam4;
 OscP5 oscP5;
@@ -43,19 +41,15 @@ void setup() {
     println("Available cameras:");
     printArray(cameras);
 
-    //cam1 = new Capture(this, cameras[199]);
     cam1 = new Capture(this, 864, 480, "Cam1", 30);
     cam1.start();
 
-    //cam2 = new Capture(this, cameras[111]);
     cam2 = new Capture(this, 864, 480, "Cam2", 30);
     cam2.start();
 
-    //cam3 = new Capture(this, cameras[287]);
     cam3 = new Capture(this, 864, 480, "Cam3", 30);
     cam3.start();
 
-    //cam4 = new Capture(this, cameras[23]);
     cam4 = new Capture(this, 864, 480, "Cam4", 30);
     cam4.start();
   }  
@@ -77,21 +71,9 @@ void draw() {
     PImage c2 = cam2;
     PImage c3 = cam3;
     PImage c4 = cam4;
-    /*c1 = flipImage(c1);
-     c2 = flipImage(c2);
-     c3 = flipImage(c3);
-     c4 = flipImage(c4);*/
-
-
-    //image(cam, 0, 0);
-    //src = cam1
 
     PGraphics output = createGraphics(1280, 800, JAVA2D);
     output.beginDraw();
-
-    //pushMatrix();
-    //translate(width/2, height/2);
-    //rotate(PI/2);
 
     output.image(c1, 0, 0, 640, height*0.5);
     output.image(c2, 640, 0, 640, height*0.5);
@@ -157,27 +139,6 @@ void draw() {
   line(0, 400, 1280, 400);
 }
 
-/*
-private PImage flipImage(PImage i) {
- int iWidth = 640;
- int iHeight = 400;
- 
- //BufferedImage bimg = new BufferedImage(iWidth, iHeight, BufferedImage.TYPE_INT_RGB);
- BufferedImage bimg = (BufferedImage) i.getNative();
- //Flip
- AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
- tx.translate(-iWidth, 0);
- AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
- bimg = op.filter(bimg, null);
- 
- //Convert to PImage
- PImage img=new PImage(bimg.getWidth(), bimg.getHeight(), PConstants.ARGB);
- bimg.getRGB(0, 0, iWidth, iHeight, img.pixels, 0, iWidth);
- img.updatePixels();
- return img;
- }
- */
-
 void sendMessage(int xx, int zz, int area, int id) {
   print(area + " ");
 
@@ -194,8 +155,8 @@ void sendMessage(int xx, int zz, int area, int id) {
     xx = (int)map(xx, 640, 1280, 0, 640);
   }
 
-  float mappedX = map(xx, 1280, 0, 10, 86);//10,85
-  float mappedZ = map(zz, 0, 800, 55, 0);//40,4
+  float mappedX = map(xx, 1280, 0, 10 + random(2), 86 + random(2));//10,85
+  float mappedZ = map(zz, 0, 800, 55 + random(2), 0 + random(2));//40,4
   float mappedArea = map(area, 1500, 27000, 3, 7);//check med blobs
   //println(xx, zz, area, mappedX, mappedZ, mappedArea);
   //drawText(mappedX, mappedZ, mappedArea, xx, zz);
@@ -209,19 +170,6 @@ void sendMessage(int xx, int zz, int area, int id) {
   oscP5.send(myOscMessage, myBroadcastLocation);
   println(xx, mappedX);
 }
-
-/*void sendMessage(int x, int z, int area, int num) {
- float mappedX = map(x, 0, 640, 21, 107);
- float mappedZ = map(z, 0, 400, 83, 44);
- float mappedArea = map(area, 500, 16000,1,10);
- 
- OscMessage myOscMessage = new OscMessage("/positionData");
- myOscMessage.add(mappedX);
- myOscMessage.add(mappedZ);
- myOscMessage.add(mappedArea);
- //myOscMessage.add(num);
- oscP5.send(myOscMessage, myBroadcastLocation);
- }*/
 
 void displayContoursBoundingBoxes() {
 
@@ -366,52 +314,3 @@ void displayBlobs() {
     b.display();
   }
 }
-
-/*int brightestX = 0; // X-coordinate of the brightest video pixel
- int brightestY = 0; // Y-coordinate of the brightest video pixel
- float brightestValue = 100; // Brightness of the brightest video pixel
- // Search for the brightest pixel: For each row of pixels in the video image and
- // for each pixel in the yth row, compute each pixel's index in the video
- cam.loadPixels();
- int index = 0;
- boolean changes = false;
- for (int y = 0; y < cam.height; y++) 
- {
- for (int x = 0; x < cam.width; x++) 
- {
- // Get the color stored in the pixel
- int pixelValue = cam.pixels[index];
- // Determine the brightness of the pixel
- float pixelBrightness = brightness(pixelValue);
- // If that value is brighter than any previous, then store the
- // brightness of that pixel, as well as its (x,y) location
- if (pixelBrightness > brightestValue) 
- {
- brightestValue = pixelBrightness;
- brightestY = y;
- brightestX = x;
- sendMessage(x, y);
- changes = true;
- //println("Brightness value = " + pixelBrightness);
- //println("X = " + x);
- //println("Y = " + y);
- }
- index++;
- }
- 
- // Draw a large, yellow circle at the brightest pixel
- fill(255, 204, 0, 128);
- ellipse(brightestX, brightestY, 50, 50);
- 
- 
- fill(255);
- text("Framerate: " + int(frameRate), 10, 450);
- }
- if (!changes) {
- sendMessage(0, 0);
- }*/
-
-
-// The following does the same, and is faster when just drawing the image
-// without any additional resizing, transformations, or tint.
-//set(0, 0, cam);
