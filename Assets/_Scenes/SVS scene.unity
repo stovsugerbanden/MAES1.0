@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
   m_Fog: 1
-  m_FogColor: {r: 0.13200097, g: 0.059688598, b: 0.6764706, a: 1}
+  m_FogColor: {r: 0.0116781965, g: 0.2647059, b: 0.2647059, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.008
+  m_FogDensity: 0.012
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.3529412, g: 0.5254902, b: 0.62352943, a: 1}
@@ -366,6 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t: {fileID: 0}
+  fingers: 0
   buildName: testBuild
   m_Initialised: 0
 --- !u!1001 &670607758
@@ -443,11 +444,25 @@ Prefab:
     - target: {fileID: 20000010121958812, guid: 8e946ffcb4c029f47956d04d143c39ad,
         type: 2}
       propertyPath: m_TargetDisplay
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000010121958812, guid: 8e946ffcb4c029f47956d04d143c39ad,
+        type: 2}
+      propertyPath: field of view
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010451244638, guid: 8e946ffcb4c029f47956d04d143c39ad, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e946ffcb4c029f47956d04d143c39ad, type: 2}
   m_IsPrefabParent: 0
+--- !u!20 &670607759 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20000010121958812, guid: 8e946ffcb4c029f47956d04d143c39ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 670607758}
 --- !u!1 &854657621
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +557,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7812f7abac5d241a6ee6729f96f231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 670607759}
+  startFieldOfView: 60
+  goalFogDensity: 0.012
+  startFogDensity: 0.022
 --- !u!20 &898646189 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20000013222141250, guid: e791cee1b38d9ef4696701e8b7ceefec,
@@ -947,6 +966,11 @@ Prefab:
         type: 2}
       propertyPath: m_BackGroundColor.b
       value: 0.11764705
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000011347846566, guid: 3d3042c35ca450740863f359c27f7dec,
+        type: 2}
+      propertyPath: m_TargetDisplay
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d3042c35ca450740863f359c27f7dec, type: 2}
