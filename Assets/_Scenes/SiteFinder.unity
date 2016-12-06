@@ -14,10 +14,10 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.053979244, g: 0.19117647, b: 0.019679926, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.045
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -195,7 +195,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 0.5854969, g: 0.5514706, b: 1, a: 1}
-  m_Intensity: 2.7
+  m_Intensity: 1.28
   m_Range: 213.2
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1327,7 +1327,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416626, guid: b989e1d09ec578b418c442d503b37917, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.8
+      value: -9.83
       objectReference: {fileID: 0}
     - target: {fileID: 416626, guid: b989e1d09ec578b418c442d503b37917, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1364,6 +1364,10 @@ Prefab:
     - target: {fileID: 416626, guid: b989e1d09ec578b418c442d503b37917, type: 2}
       propertyPath: m_LocalScale.z
       value: 3.0387042
+      objectReference: {fileID: 0}
+    - target: {fileID: 166354, guid: b989e1d09ec578b418c442d503b37917, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b989e1d09ec578b418c442d503b37917, type: 2}
@@ -1416,7 +1420,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.63232374
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1627,7 +1631,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 0.6838235, g: 0.69908714, b: 1, a: 1}
-  m_Intensity: 1.54
+  m_Intensity: 1.28
   m_Range: 213.2
   m_SpotAngle: 30
   m_CookieSize: 10
