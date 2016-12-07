@@ -32,12 +32,12 @@ public class MoveWater : MonoBehaviour
             if (counter > 3)
             {
                 //print(RenderSettings.fogDensity - goalFogDensity);
-                if (RenderSettings.fogDensity > goalFogDensity && counter > 8)
+                if (RenderSettings.fogDensity > goalFogDensity && counter > 6)
                 {
                     RenderSettings.fogDensity -= 0.0001f;
                 }
                 print(RenderSettings.fogDensity + " " + goalFogDensity);
-                transform.position += new Vector3(0, 0.01f, 0);
+                transform.position += new Vector3(0, 0.005f, 0);
                 if (field > endFieldOfView)
                 {
                     field -= Time.deltaTime;
