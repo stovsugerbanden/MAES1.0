@@ -54,7 +54,7 @@ function Update () {
 		var id:int = temp.mId;
 
     	//cube.transform.localScale = Vector3(boxWidth,5,boxHeight);
-		cube.transform.position = new Vector3(x,35,z);
+		cube.transform.position = new Vector3(x,-7,z);
 		whirl.transform.position =	cube.transform.position;
 
 		//print("ID: "+id);
