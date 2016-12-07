@@ -155,9 +155,12 @@ void sendMessage(int xx, int zz, int area, int id) {
     xx = (int)map(xx, 640, 1280, 0, 640);
   }
 
-  float mappedX = map(xx, 1280, 0, 10 + random(2), 86 + random(2));//10,85
-  float mappedZ = map(zz, 0, 800, 55 + random(2), 0 + random(2));//40,4
-  float mappedArea = map(area, 1500, 27000, 3, 7);//check med blobs
+ // float mappedX = map(xx, 1280, 0, 10 + random(2), 86 + random(2));//10,85
+    float mappedX = map(xx, 1280, 0, -17 + (random(3)-1), 47 + (random(3)-1));//10,85
+  //float mappedZ = map(zz, 0, 800, 55 + random(2), 0 + random(2));//40,4
+    float mappedZ = map(zz, 0, 800, -39 + (random(3)-1), 1 + (random(3)-1));//40,4
+
+  float mappedArea = map(area, 1500, 27000, 4, 7);//check med blobs
   //println(xx, zz, area, mappedX, mappedZ, mappedArea);
   //drawText(mappedX, mappedZ, mappedArea, xx, zz);
 
