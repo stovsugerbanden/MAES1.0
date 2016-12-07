@@ -17,6 +17,7 @@ public class MoveWater : MonoBehaviour
     {
         endFieldOfView = cam.fieldOfView;
         field = startFieldOfView;
+        cam.fieldOfView = field;
         RenderSettings.fogDensity = startFogDensity;
 
     }

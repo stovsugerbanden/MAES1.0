@@ -1215,7 +1215,7 @@ MonoBehaviour:
   speed: 2.5
   speedModifyer: 4
   rotationSpeed: 1.2
-  applyRulesFactor: 30
+  applyRulesFactor: 40
   neighborRange: 4
   restingNeighborDistance: 5
   restingGroundDistance: 3
