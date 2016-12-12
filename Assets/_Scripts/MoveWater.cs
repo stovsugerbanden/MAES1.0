@@ -12,6 +12,11 @@ public class MoveWater : MonoBehaviour
     public float goalFogDensity = 0.012f;
     public float startFogDensity = 0.022f;
 
+    public float waterSpeed = 0.012f;
+    public float fogSpeed = 0.0001f;
+
+    float waterAcc = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -30,15 +35,17 @@ public class MoveWater : MonoBehaviour
 
             //print(RenderSettings.fogDensity);
             counter += Time.deltaTime;
-            if (counter > 3)
+            if (counter > 1)
             {
                 //print(RenderSettings.fogDensity - goalFogDensity);
-                if (RenderSettings.fogDensity > goalFogDensity && counter > 6)
+                if (RenderSettings.fogDensity > goalFogDensity && counter > 7)
                 {
-                    RenderSettings.fogDensity -= 0.0001f;
+                    RenderSettings.fogDensity -= fogSpeed;
                 }
                 //print(RenderSettings.fogDensity + " " + goalFogDensity);
-                transform.position += new Vector3(0, 0.005f, 0);
+                transform.position += new Vector3(0, waterAcc, 0);
+                if (waterAcc <= waterSpeed)
+                    waterAcc += Time.deltaTime*0.02f; 
                 if (field > endFieldOfView)
                 {
                     field -= Time.deltaTime;
