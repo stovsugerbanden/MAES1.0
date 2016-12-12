@@ -10,6 +10,8 @@ public class Fish : MonoBehaviour
     private FlockAIUtilities utilities;     //Own instance of utilities
 
     private GameObject[] allFish;           //Contains all members of this flock
+    private ScaryObject[] scaryObjects;
+    private AvoidObject[] avoidObjects;
     private bool instatiated = false;       //This becomes true when all members have been retrieved from the Flock.cs instantiation.
 
     private float initSpeed;                //Each members original speed. Not changing. 
@@ -94,7 +96,12 @@ public class Fish : MonoBehaviour
 
     void Start()
     {
+        scaryObjects = (ScaryObject[])FindObjectsOfType(typeof(ScaryObject));
+        avoidObjects = (AvoidObject[])FindObjectsOfType(typeof(AvoidObject));
+ 
         utilities = new FlockAIUtilities(GameObject.FindGameObjectWithTag("GlobalFlock").transform);
+        GUITexture texture = (GUITexture)FindObjectOfType(typeof(GUITexture));
+
         anim = GetComponent<Animator>();
         //volume = GameObject.FindGameObjectWithTag("Terrain").GetComponent<TerrainVolume>();
 
@@ -200,7 +207,7 @@ public class Fish : MonoBehaviour
         if (AvoidObjectNearby())
         {
             Rotate(avoidDirection);
-            CalculateSpeed(1f, true); // .. move away 
+            //CalculateSpeed(1f, true); // .. move away 
         }
 
         //If a scary object is nearby ..
@@ -323,10 +330,10 @@ public class Fish : MonoBehaviour
             {
                 //interacting = true;
                 //print(contact.otherCollider.transform.name);
-                Debug.DrawRay(contact.point, contact.normal, Color.green, .3f);
+                Debug.DrawRay(contact.point, contact.normal, Color.green, 3f);
                 avoidTerrainDirection = contact.normal;
                 Rotate(avoidTerrainDirection);
-                CalculateSpeed(1f, true);
+                CalculateSpeed(.9f, true);
 
             }
         }
@@ -565,12 +572,12 @@ public class Fish : MonoBehaviour
     private bool AvoidObjectNearby()
     {
         avoidDirection = Vector3.zero;
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, scaredDist);
-        foreach (Collider c in hitColliders)
+        //Collider[] hitColliders = Physics.OverlapSphere(transform.position, scaredDist);
+        foreach (AvoidObject ao in avoidObjects)
         {
-            if (c.gameObject.GetComponent<AvoidObject>() != null && c.gameObject != gameObject)
+            if (Vector3.Distance(ao.transform.position, transform.position) < avoidDist)
             {
-                avoidDirection = -(c.gameObject.transform.position - transform.position);
+                avoidDirection = -(ao.transform.position - transform.position);
                 state = States.flocking;
                 return true;
             }
@@ -582,6 +589,21 @@ public class Fish : MonoBehaviour
     private bool ScaryObjectNearby()
     {
         scaredDirection = Vector3.zero;
+        foreach (ScaryObject so in scaryObjects)
+        {
+            if (Vector3.Distance(transform.position, so.transform.position) < scaredDist)
+            {
+                scaredDirection = -(so.transform.position - transform.position);
+                state = States.flocking;
+                return true;
+            }
+
+        }
+        return false;
+
+
+
+        /*scaredDirection = Vector3.zero;
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, scaredDist);
         foreach (Collider c in hitColliders)
         {
@@ -593,7 +615,7 @@ public class Fish : MonoBehaviour
             }
 
         }
-        return false;
+        return false;*/
     }
     #endregion
 

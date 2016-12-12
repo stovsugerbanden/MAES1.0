@@ -37,7 +37,7 @@ public class MoveWater : MonoBehaviour
                 {
                     RenderSettings.fogDensity -= 0.0001f;
                 }
-                print(RenderSettings.fogDensity + " " + goalFogDensity);
+                //print(RenderSettings.fogDensity + " " + goalFogDensity);
                 transform.position += new Vector3(0, 0.005f, 0);
                 if (field > endFieldOfView)
                 {
