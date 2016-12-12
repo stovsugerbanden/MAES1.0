@@ -1,0 +1,9 @@
+diff a/Assets/Standard Assets/Effects/Projectors/Materials/LightProjector.mat b/Assets/Standard Assets/Effects/Projectors/Materials/LightProjector.mat	(rejected hunks)
+@@ -48,6 +48,7 @@
+     - first:
+         name: _ShadowTex
+       second:
++        m_Texture: {fileID: 2800000, guid: 803ce4d25df207d42b11a76c13bcfa42, type: 3}
+         m_Scale: {x: 1, y: 1}
+         m_Offset: {x: 0, y: 0}
+     m_Floats: []
