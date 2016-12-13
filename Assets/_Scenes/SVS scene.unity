@@ -462,6 +462,33 @@ Camera:
   m_PrefabParentObject: {fileID: 20000013222141250, guid: e791cee1b38d9ef4696701e8b7ceefec,
     type: 2}
   m_PrefabInternal: {fileID: 1855595526}
+--- !u!20 &1030810372 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20000010121958812, guid: 8e946ffcb4c029f47956d04d143c39ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 2007692611}
+--- !u!1 &1327559960 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1529116748021684, guid: 8e946ffcb4c029f47956d04d143c39ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 2007692611}
+--- !u!114 &1327559965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1327559960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7812f7abac5d241a6ee6729f96f231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1030810372}
+  startFieldOfView: 60
+  goalFogDensity: 0.014
+  startFogDensity: 0.07
+  waterSpeed: 0.02
+  fogSpeed: 0.0002
 --- !u!1001 &1855595526
 Prefab:
   m_ObjectHideFlags: 0
@@ -741,7 +768,7 @@ Prefab:
     - target: {fileID: 114961299475685550, guid: 8e946ffcb4c029f47956d04d143c39ad,
         type: 2}
       propertyPath: waterSpeed
-      value: 0.02
+      value: 0.017
       objectReference: {fileID: 0}
     - target: {fileID: 114961299475685550, guid: 8e946ffcb4c029f47956d04d143c39ad,
         type: 2}
@@ -757,6 +784,18 @@ Prefab:
         type: 2}
       propertyPath: goalFogDensity
       value: 0.014
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541987244244048, guid: 8e946ffcb4c029f47956d04d143c39ad, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529116748021684, guid: 8e946ffcb4c029f47956d04d143c39ad, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143369381187786, guid: 8e946ffcb4c029f47956d04d143c39ad, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 30.66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e946ffcb4c029f47956d04d143c39ad, type: 2}
@@ -825,7 +864,7 @@ Prefab:
     - target: {fileID: 114000013916772412, guid: 59ecbb2417b7a604ebf783be4f976b7c,
         type: 2}
       propertyPath: numFish
-      value: 100
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 1000011979053788, guid: 59ecbb2417b7a604ebf783be4f976b7c, type: 2}
       propertyPath: m_IsActive
