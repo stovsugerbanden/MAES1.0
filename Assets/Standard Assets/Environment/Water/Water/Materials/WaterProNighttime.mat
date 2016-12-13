@@ -60,10 +60,10 @@ Material:
     m_Floats:
     - first:
         name: _ReflDistort
-      second: 0.44
+      second: 0.46
     - first:
         name: _RefrDistort
-      second: 0.4
+      second: 0.38
     - first:
         name: _WaveScale
       second: 0.063
@@ -97,7 +97,7 @@ Material:
       second: {r: 1, g: 1, b: 0, a: 0}
     - first:
         name: _RefrColor
-      second: {r: 0, g: 0, b: 0, a: 1}
+      second: {r: 0, g: 0.029411793, b: 0.0002028383, a: 1}
     - first:
         name: _RefractionTex_ST
       second: {r: 1, g: 1, b: 0, a: 0}

@@ -7,22 +7,31 @@ public class CreateBody : MonoBehaviour {
     Rigidbody rb;
     RaycastHit hit;
     float mass, drag;
+    string name;
     ObjectProperties op;
+    AddObjToWall activeObj;
 
-	void Start () {
+    float startTimer = 0;
+
+
+
+    void Start () {
+        activeObj = GameObject.FindGameObjectWithTag("Global").GetComponent<AddObjToWall>();
+
         rb = GetComponent<Rigidbody>();
         op = GetComponent<ObjectProperties>();
         mass = op.mass;
         drag = op.drag;
+        name = op.name;
         
 	}
 	
 	void Update () {
-
-        if (rb == null) {
+        startTimer += Time.deltaTime;
+        if (rb == null && startTimer > 4) {
 			if (Physics.Raycast(transform.position, new Vector3(0,-1,0), out hit))
             {
-                if (hit.distance > distanceToGround/* && !hit.transform.name.Contains("OctreeNode")*/)
+                if (hit.distance > distanceToGround && hit.transform.name.Contains("OctreeNode"))
                 {
                     addBody();
                 }
@@ -37,6 +46,7 @@ public class CreateBody : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         rb.drag = drag;
         rb.mass = mass;
+        activeObj.setActiveObject(name);
         //rb.velocity = Vector3.zero;
         //rb.angularVelocity = Vector3.zero;
     }

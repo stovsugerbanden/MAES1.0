@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ObjectProperties : MonoBehaviour {
     public float mass, drag;
+    public string name;
     Current c;
 
     void Start(){

@@ -10,6 +10,9 @@ TagManager:
   - trackingTarget
   - Whirl
   - Pin
+  - GlobalFlock
+  - Fish
+  - AllObjects
   layers:
   - Default
   - TransparentFX

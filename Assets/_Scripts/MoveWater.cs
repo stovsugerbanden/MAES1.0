@@ -38,7 +38,7 @@ public class MoveWater : MonoBehaviour
             if (counter > 1)
             {
                 //print(RenderSettings.fogDensity - goalFogDensity);
-                if (RenderSettings.fogDensity > goalFogDensity && counter > 7)
+                if (RenderSettings.fogDensity > goalFogDensity && counter > 6)
                 {
                     RenderSettings.fogDensity -= fogSpeed;
                 }
