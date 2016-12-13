@@ -170,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &111057485
 Transform:
   m_ObjectHideFlags: 0
@@ -1736,12 +1736,12 @@ Prefab:
     - target: {fileID: 114961299475685550, guid: 8e946ffcb4c029f47956d04d143c39ad,
         type: 2}
       propertyPath: waterSpeed
-      value: 0.017
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 114961299475685550, guid: 8e946ffcb4c029f47956d04d143c39ad,
         type: 2}
       propertyPath: startFogDensity
-      value: 0.07
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 114961299475685550, guid: 8e946ffcb4c029f47956d04d143c39ad,
         type: 2}
@@ -1755,7 +1755,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1541987244244048, guid: 8e946ffcb4c029f47956d04d143c39ad, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1529116748021684, guid: 8e946ffcb4c029f47956d04d143c39ad, type: 2}
       propertyPath: m_IsActive
@@ -2006,7 +2006,7 @@ Prefab:
     - target: {fileID: 114000013916772412, guid: 59ecbb2417b7a604ebf783be4f976b7c,
         type: 2}
       propertyPath: numFish
-      value: 250
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1000011979053788, guid: 59ecbb2417b7a604ebf783be4f976b7c, type: 2}
       propertyPath: m_IsActive
