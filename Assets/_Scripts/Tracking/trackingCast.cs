@@ -14,7 +14,7 @@ public class trackingCast : MonoBehaviour {
     public float differenceLimit = 2f;
     public float angle = .5f;
     public float length = 5;
-    public float wsDisplace = 6;
+    public float wsDisplace = 4;
     public int finalYDisplace = 2;
     Vector3 p;
 

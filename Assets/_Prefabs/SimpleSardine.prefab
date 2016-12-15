@@ -1225,7 +1225,7 @@ MonoBehaviour:
   restingGroundDistance: 3
   tooCloseRange: 3
   groupSpeedReset: 0.85
-  scaredDist: 10.32
+  scaredDist: 20
   fleeSpeed: 6
   avoidDist: 2
   aloneSpeed: 2.5

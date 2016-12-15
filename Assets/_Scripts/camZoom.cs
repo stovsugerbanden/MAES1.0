@@ -31,7 +31,7 @@ public class camZoom : MonoBehaviour
     {
         fingers = c.fingers;
         RaycastHit hit;
-        if (Input.GetButton("Fire1") || Input.GetButton("Fire2") || Input.GetButton("Fire3") || fingers != 0)
+        if (/*Input.GetButton("Fire1") || Input.GetButton("Fire2") || Input.GetButton("Fire3") || */fingers != 0)
         {
             step = map(cam.fieldOfView, maxZoom, minZoom, 0.1f, 1.5f);
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -41,9 +41,9 @@ public class camZoom : MonoBehaviour
                     Quaternion targetRot = Quaternion.LookRotation(hit.point - transform.position);
                     transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotSpeed * Time.deltaTime);//Rotate towards click point
                 }
-                if (cam.fieldOfView > maxZoom && fingers == 2 || Input.GetButton("Fire2"))//Zoom in 
+                if (cam.fieldOfView > maxZoom && fingers == 2/* || Input.GetButton("Fire2")*/)//Zoom in 
                     cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, cam.fieldOfView - step, zoomSpeed * Time.deltaTime);
-                if (cam.fieldOfView < minZoom && fingers == 3 || Input.GetButton("Fire3"))//Zoom out
+                if (cam.fieldOfView < minZoom && fingers == 3 /*|| Input.GetButton("Fire3")*/)//Zoom out
                     cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, cam.fieldOfView + step, zoomSpeed * Time.deltaTime);
             }
         }
