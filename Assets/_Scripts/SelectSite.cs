@@ -17,7 +17,7 @@ public class SelectSite : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //print("Touchcount: "+Input.touchCount);
-        if (Input.GetButton("Fire1") || touch.fingers == 1)
+        if (/*Input.GetButton("Fire1") || */touch.fingers == 1)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray.origin, ray.direction, out hit))

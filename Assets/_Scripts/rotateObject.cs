@@ -15,11 +15,7 @@ public class rotateObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //transform.rotation = Quaternion.Euler(new Vector3(0,.1f,0));
-        /*float rotX = ((float)Random.Range(0, 100));
-        float rotY = ((float)Random.Range(0, 100));
-        float rotZ = ((float)Random.Range(0, 100));
-        transform.Rotate(new Vector3(rotX, rotY, rotZ)*Time.deltaTime);*/
+
         count++;
         if (count > destFrequency) {
             targetRot = Random.rotation;
