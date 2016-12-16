@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class CreateBody : MonoBehaviour {
 
@@ -8,21 +9,25 @@ public class CreateBody : MonoBehaviour {
     RaycastHit hit;
     float mass, drag;
     string name;
+    string infoText;
     ObjectProperties op;
     AddObjToWall activeObj;
-
     float startTimer = 0;
+
+    Text t;
 
 
 
     void Start () {
         activeObj = GameObject.FindGameObjectWithTag("Global").GetComponent<AddObjToWall>();
+        t = GameObject.FindGameObjectWithTag("WallCanvas").GetComponent<Text>();
 
         rb = GetComponent<Rigidbody>();
         op = GetComponent<ObjectProperties>();
         mass = op.mass;
         drag = op.drag;
         name = op.name;
+        infoText = op.infoText;
         
 	}
 	
@@ -47,6 +52,7 @@ public class CreateBody : MonoBehaviour {
         rb.drag = drag;
         rb.mass = mass;
         activeObj.setActiveObject(name);
+        t.text = infoText;
         //rb.velocity = Vector3.zero;
         //rb.angularVelocity = Vector3.zero;
     }

@@ -13,6 +13,7 @@ TagManager:
   - GlobalFlock
   - Fish
   - AllObjects
+  - WallCanvas
   layers:
   - Default
   - TransparentFX
